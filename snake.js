@@ -1,7 +1,51 @@
-let winInnerWidth = window.innerWidth; //setting entire window width as a variable
-let winInnerHeight = window.innerHeight; //setting entire window height as a variable
 let theBoard = document.querySelector('canvas'); //setting the game board as a variable
 let ctx = theBoard.getContext('2d'); //context is the "pen" that draws on the canvas
+
+theBoard.height = window.innerHeight;
+theBoard.width = window.innerWidth;
+
+
+
+// ctx.moveTo(x, y), changes starting point
+// ctx.arcTo(x, y, x2, y2, radiusInRadians), start and end points with the angle between them(use 2 * Math.PI)
+// ctx.lineTo(x, y), draws a line to the coordinates put in
+// ctx.bezierCurveTo(), 
+// ctx.quadraticCurveTo(), 
+// ctx.arc(x, y, radius, startAngle, endAngle, counterclockwise?), arc centered at x, y
+// requestAnimationFrame(callback), tells the browser to call the function within the parameter again
+// ctx.clearRect(x, y, width, height), essentially clears all drawings within defined rectangle
+
+// const bodyPart = (a, b) => {
+//     ctx.strokeStyle = '#ff0000';
+//     ctx.beginPath();
+//     ctx.rect(a, b, 25, 25);
+//     ctx.stroke();
+// }; //drawing test
+
+// bodyPart(24, 30)
+
+let x = theBoard.width/2 //sets starting point center
+let y = theBoard.height/2 //sets starting point to center
+//need to animate a rect going right and bouncing off
+const animate = () => {
+   ctx.strokeStyle = '#ff0000'; 
+   ctx.lineWidth = 7;
+   ctx.clearRect(0, 0, innerWidth, innerHeight); // clears before drawing, hitting the whole screen
+   ctx.beginPath();//initiate the first square
+   ctx.rect(x, y, 30, 30);//centers square
+   ctx.stroke();
+   x += 5; // increase the x value by 1, moving it right one pixel
+   if (x + 15 === innerWidth) {
+       x = 0;
+   }; //when the square hits the edge, it jumps to the other side
+   //ctx.clearRect(), doesn't work as it clears right after drawing, effectively doing nothing
+   requestAnimationFrame(animate); //calls animate function again, works but need to clear previous rectangles before redrawing (done)
+}
+
+animate();
+
+
+
 
 
 
