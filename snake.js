@@ -71,22 +71,22 @@ animate();
 document.addEventListener("keydown", (direct) => {
     //"listens" for a key press and passes the key as a parameter into the following function
     console.log(direct.key) // detects the code for key which was pressed; returns "ArrowRight", "ArrowLeft", "ArrowUp", and "ArrowDown"
-    if (direct.key === "ArrowUp") {
+    if (direct.key === "ArrowUp" || direct.key === "w") {
         dx = 0;
         dy = -6;
     };
 
-    if (direct.key === "ArrowDown") {
+    if (direct.key === "ArrowDown" || direct.key === "s") {
         dx = 0;
         dy = 6;
     };
 
-    if (direct.key === "ArrowLeft") {
+    if (direct.key === "ArrowLeft" || direct.key === "a") {
         dx = -6;
         dy = 0;
     };
 
-    if (direct.key === "ArrowRight") {
+    if (direct.key === "ArrowRight" || direct.key === "d") {
         dx = 6;
         dy = 0;
     };
