@@ -38,25 +38,25 @@ const animate = () => {
    ctx.stroke();
    x += dx; // increase the x value by 5, moving it right one pixel
    y += dy; // increase y value 
-   if (x + 12 >= theBoard.width && dx === 6) {
+   if (x + 15 >= theBoard.width && dx === 6) {
        //detects when rectangle hits the RIGHT edge, x-position(center of square) plus half the width (15) 
        x = 0;
    }; //when the square hits the edge, it jumps to the other side
    //ctx.clearRect(), doesn't work as it clears right after drawing, effectively doing nothing
 
-   if (y + 12 <= 0 && dy === -6) {
+   if (y + 15 <= 0 && dy === -6) {
        //detects when rectangle hits the TOP 
        y = theBoard.height;
    };
 
    
-   if (y + 12 >= theBoard.height && dy === 6) {
+   if (y + 15 >= theBoard.height && dy === 6) {
     //detects when rectangle hits the BOTTOM
     y = 0;
 };
 
 
-if (x + 12 <= 0 && dx === -6) {
+if (x + 15 <= 0 && dx === -6) {
     //detects when rectangle hits the LEFT
     x = theBoard.width;
 };
