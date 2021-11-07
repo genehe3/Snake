@@ -70,7 +70,7 @@ animate();
 //add arrow key press detection
 document.addEventListener("keydown", (direct) => {
     //"listens" for a key press and passes the key as a parameter into the following function
-    //console.log(direct.key) // detects the code for key which was pressed; returns "ArrowRight", "ArrowLeft", "ArrowUp", and "ArrowDown"
+    console.log(direct.key) // detects the code for key which was pressed; returns "ArrowRight", "ArrowLeft", "ArrowUp", and "ArrowDown"
     if (direct.key === "ArrowUp") {
         dx = 0;
         dy = -6;
@@ -79,18 +79,23 @@ document.addEventListener("keydown", (direct) => {
     if (direct.key === "ArrowDown") {
         dx = 0;
         dy = 6;
-    }
+    };
 
     if (direct.key === "ArrowLeft") {
         dx = -6;
         dy = 0;
-    }
+    };
 
     if (direct.key === "ArrowRight") {
         dx = 6;
         dy = 0;
-    }
-})
+    };
+
+    if (direct.key === " ") {
+        dx = 0;
+        dy = 0;
+    };
+});
 
 
 
