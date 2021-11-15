@@ -105,6 +105,8 @@ const draw = () => {
     ctx.fillRect(50, 50, 25, 25);
 }
 
+draw();
+
 
 
 
