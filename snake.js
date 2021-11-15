@@ -100,12 +100,14 @@ theBoard.width = window.innerWidth;
 //every line of code before this is commented out, except for sizing of canvas element
 //revision of this 'snake' project began today, November 15, 2021
 
-const draw = () => {
+const draw = (x, y) => {
     ctx.strokeStyle = 'red'
-    ctx.fillRect(50, 50, 25, 25);
+    ctx.fillRect(x, y, 25, 25);
 }
 
 draw();
+
+document.addEventListener('mousedown', draw(e.offsetX, e.offsetY))
 
 
 
