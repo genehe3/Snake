@@ -107,7 +107,7 @@ const draw = (x, y) => {
 
 draw();
 
-document.addEventListener('mousedown', draw(e.offsetX, e.offsetY))
+document.addEventListener('mousedown', draw(mousedown.offsetX, mousedown.offsetY))
 
 
 
