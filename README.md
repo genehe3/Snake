@@ -8,3 +8,5 @@ I learned how to manipulate the rectangle, moving it, drawing it in different st
 Although I consider this attempt as a failure, I have learned much from it and will apply this knownledge to future projects, possibly a second attempt at a snake game.
 
 Website: https://gsnake.netlify.app/
+
+This project will probably be repurposed for a third.
