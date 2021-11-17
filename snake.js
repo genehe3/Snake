@@ -1,10 +1,8 @@
 let theBoard = document.querySelector('canvas'); //setting the game board as a variable
 let ctx = theBoard.getContext('2d'); //context is the "pen" that draws on the canvas
 
-theBoard.height = window.innerHeight;
-theBoard.width = window.innerWidth;
-
-
+theBoard.height = window.innerHeight; //full height
+theBoard.width = window.innerWidth; //full width
 
 // // ctx.moveTo(x, y), changes starting point
 // // ctx.arcTo(x, y, x2, y2, radiusInRadians), start and end points with the angle between them(use 2 * Math.PI)
@@ -99,15 +97,43 @@ theBoard.width = window.innerWidth;
 
 //every line of code before this is commented out, except for sizing of canvas element
 //revision of this 'snake' project began today, November 15, 2021
-
-const draw = (x, y) => {
-    ctx.strokeStyle = 'red'
-    ctx.fillRect(x, y, 25, 25);
+const drawCircle = (x, y) => {
+    //function to draw a circle with two arguments for position
+    ctx.clearRect(0, 0, theBoard.width, theBoard.height);
+    //clears board before drawing circle, allowing for 'movement'
+    ctx.strokeStyle = 'white';
+    ctx.beginPath();
+    ctx.arc(x, y, 15, 0, Math.PI * 2, false);
+    ctx.stroke();
+}
+const mouse = {
+    //an object for tracking where the x and y coordinates of the mouse is
+    x:null,
+    y:null,
 }
 
-draw();
+theBoard.addEventListener('mousemove', (event) => {
+    //detects mouse movement and passes the properties of the 'mousemove' as an argument to the following function
+    //console.log(event); //check for what is actually passed; the 'x' and 'y' property is what I need
+    mouse.x = event.x;
+    mouse.y = event.y;
+    drawCircle(mouse.x, mouse.y); //the circle follows the mouse. Should hide cursor when a click happens
+})
 
-document.addEventListener('mousedown', draw(mousedown.offsetX, mousedown.offsetY))
+cursorShown = false;
+
+theBoard.addEventListener('mousedown', (event) => {
+    //need a css ruling for hiding mouse in the canvas, clicking changes the variable
+    if (cursorShown === false) {
+        document.querySelector(':root').style.setProperty('--hideCursor', 'show'); //shows cursor
+        cursorShown = true;
+    } else {
+        document.querySelector(':root').style.setProperty('--hideCursor', 'none'); //hides cursor 
+        cursorShown = false;
+    }
+}) //working
+
+
 
 
 
